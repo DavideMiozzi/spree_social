@@ -29,7 +29,8 @@ class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             user.apply_omniauth(auth_hash)
             if user.save
               flash[:notice] = "Signed in successfully."
-              sign_in_and_redirect :spree_user, user
+              sign_in
+              redirect_to request.env['omniauth.origin'] || '/default'
             else
               session[:omniauth] = auth_hash.except('extra')
               flash[:notice] = t(:one_more_step, :kind => auth_hash['provider'].capitalize)
