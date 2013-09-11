@@ -3,7 +3,9 @@ module OmniAuth
   module Strategies
     class Fandom < OmniAuth::Strategies::OAuth2
 
-      CUSTOM_PROVIDER_URL = 'http://miltonclass.fandomlab.com'
+  #    CUSTOM_PROVIDER_URL = 'http://miltonclass.fandomlab.com'
+
+      CUSTOM_PROVIDER_URL = 'http://demo.holden.local:4041'  
 
       option :client_options, {
         :site =>  CUSTOM_PROVIDER_URL,
